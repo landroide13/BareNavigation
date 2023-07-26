@@ -5,12 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import StackNavigator from './src/navigator/StackNavigator';
 import DrawerNavigator from './src/navigator/DrawerNavigator';
+import DraweNavPersonalize from './src/navigator/DraweNavPersonalize';
 
 const App = () => {
   return (
     <NavigationContainer>
       {/* <StackNavigator /> */}
-      <DrawerNavigator />
+      {/* <DrawerNavigator /> */}
+      <DraweNavPersonalize/>
     </NavigationContainer>
   )
 }

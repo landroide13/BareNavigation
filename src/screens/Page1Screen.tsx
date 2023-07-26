@@ -1,12 +1,26 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { StackScreenProps } from '@react-navigation/stack'
+import React, { useEffect} from 'react'
+// import { StackScreenProps } from '@react-navigation/stack'
 import { styles } from '../themes/AppTheme'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { DrawerScreenProps } from '@react-navigation/drawer'
 
-interface Props extends StackScreenProps<any , any>{}
+// interface Props extends StackScreenProps<any , any>{}
+interface Props extends DrawerScreenProps<any , any>{}
 
 const Page1Screen = ({ navigation }: Props) => {
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Button title='Toggle'
+          onPress={() => navigation.toggleDrawer()}
+        />
+    )
+    })
+  }, [])
+  
+
   return (
     <View style={ styles.globalMargin }>
       <Text style={ styles.title }>Page1 Screen</Text>
