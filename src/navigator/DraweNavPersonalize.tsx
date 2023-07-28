@@ -6,6 +6,7 @@ import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavig
 import StackNavigator from './StackNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
 import { styles } from '../themes/AppTheme'
+import TabNav from './TabNav';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +18,8 @@ const DraweNavPersonalize = () => {
             }}
             drawerContent={(props) => <InternalMenu {...props} />}
         >
-          <Drawer.Screen name="StackNav" component={StackNavigator} />
+          {/* <Drawer.Screen name="StackNav" component={StackNavigator} /> */}
+          <Drawer.Screen name="Tabs" component={TabNav} />
           <Drawer.Screen name="Settings" component={SettingsScreen} />
         </Drawer.Navigator>
       )
@@ -37,9 +39,9 @@ const InternalMenu = ({ navigation } : DrawerContentComponentProps ) =>{
             <View style={ styles.menuContainer }>
                 <TouchableOpacity 
                     style={ styles.menuBtn }
-                    onPress={() => navigation.navigate('StackNav')}
+                    onPress={() => navigation.navigate('Tabs')}
                     >
-                    <Text style={ styles.menuText }>Navegation</Text>
+                    <Text style={ styles.menuText }>Tabs</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 

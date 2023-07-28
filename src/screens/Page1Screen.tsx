@@ -27,7 +27,7 @@ const Page1Screen = ({ navigation }: Props) => {
 
       <Button  title='Go Pag 2' onPress={() => navigation.navigate('Page2')}/>
 
-      <Text style={ styles.title }>Navigation With Argumentos</Text>
+      <Text style={{ ...styles.title, marginVertical:20 }}>Navigation With Argumentos</Text>
 
       <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity 
