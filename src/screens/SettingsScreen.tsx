@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useContext } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { styles } from '../themes/AppTheme';
+import { colors, styles } from '../themes/AppTheme';
 import { AuthContext } from '../context/AuthContext';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SettingsScreen = () => {
 
@@ -15,6 +17,13 @@ const SettingsScreen = () => {
       <Text style={ styles.title }>Settings Screen</Text>
 
       <Text>{ JSON.stringify(authState) }</Text>
+
+      {
+
+        authState.favoriteIcon ? <Icon name={ authState.favoriteIcon } size={ 80 } color={ colors.primary } /> 
+                               :   <Text>No Icon Seleted</Text>
+      }
+      
     </View>
   )
 }

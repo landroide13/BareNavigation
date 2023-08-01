@@ -4,6 +4,7 @@ import { styles, colors } from '../themes/AppTheme';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import BtnIcon from '../components/BtnIcon';
 
 const Tab1Screen = () => {
 
@@ -18,20 +19,14 @@ const Tab1Screen = () => {
       <Text style={ styles.title }>Tab1 Screen Of Icons</Text>
 
      
-     <Text>
-        <Icon name="facebook" size={60} color={ colors.primary }  />
-     </Text>
-
-     <Text>
-        <Icon name="user" size={60} color={ colors.primary } />
-     </Text>
-
-     <Text>
-        <Icon name="cloud" size={60} color={ colors.primary } />
-     </Text>
-
-     <Text>
-        <Icon name="transgender" size={60} color={ colors.primary } />
+     <Text style={{ flexDirection: 'column', justifyContent:'space-around', alignItems: 'stretch'}}>
+        <BtnIcon name="facebook" />
+     
+        <BtnIcon name="user"  />
+     
+        <BtnIcon name="cloud" />
+    
+        <BtnIcon name="transgender" />
      </Text>
       
     </View>
