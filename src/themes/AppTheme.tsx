@@ -47,6 +47,10 @@ export const styles = StyleSheet.create({
 
     menuBtn:{
         marginVertical: 15
+    },
+
+    drawerItemContainer:{
+        flexDirection: 'row'
     }
 
 })

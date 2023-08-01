@@ -1,9 +1,11 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect} from 'react'
 // import { StackScreenProps } from '@react-navigation/stack'
-import { styles } from '../themes/AppTheme'
+import { colors, styles } from '../themes/AppTheme'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { DrawerScreenProps } from '@react-navigation/drawer'
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 // interface Props extends StackScreenProps<any , any>{}
 interface Props extends DrawerScreenProps<any , any>{}
@@ -13,10 +15,10 @@ const Page1Screen = ({ navigation }: Props) => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Button title='Toggle'
-          onPress={() => navigation.toggleDrawer()}
-        />
-    )
+        <TouchableOpacity style={{ marginLeft: 18 }} onPress={() => navigation.toggleDrawer()}>
+          <Icon name="bars" size={25} color={ colors.primary }  />  
+       </TouchableOpacity>
+      )
     })
   }, [])
   
@@ -33,12 +35,14 @@ const Page1Screen = ({ navigation }: Props) => {
         <TouchableOpacity 
           style={{ ...styles.BigBtn, backgroundColor: '#5856D6'  }} 
           onPress={() => navigation.navigate('Person', {id: 1, name: 'Peter'})}>
+          <Icon name="users" size={25} color="white"  />  
           <Text style={ styles.textBtn }>Peter</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
           style={{ ...styles.BigBtn, backgroundColor: '#ff9427'  }} 
           onPress={() => navigation.navigate('Person', {id: 2, name: 'Eltro'})}>
+          <Icon name="users" size={25} color="white"  />  
           <Text style={ styles.textBtn }>Eltro</Text>
         </TouchableOpacity>
       </View>

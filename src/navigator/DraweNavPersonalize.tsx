@@ -5,8 +5,10 @@ import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavig
 
 import StackNavigator from './StackNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
-import { styles } from '../themes/AppTheme'
+import { styles, colors } from '../themes/AppTheme';
 import TabNav from './TabNav';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Drawer = createDrawerNavigator();
 
@@ -41,14 +43,20 @@ const InternalMenu = ({ navigation } : DrawerContentComponentProps ) =>{
                     style={ styles.menuBtn }
                     onPress={() => navigation.navigate('Tabs')}
                     >
-                    <Text style={ styles.menuText }>Tabs</Text>
+                    <View style={ styles.drawerItemContainer }>
+                        <Text><Icon name="outdent" size={25} color='black'  /></Text>    
+                        <Text style={{ ...styles.menuText, marginLeft: 8 }}>Tabs</Text>
+                    </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={ styles.menuBtn }
                     onPress={() => navigation.navigate('Settings')}
                     >
-                    <Text style={ styles.menuText }>Settings</Text>
+                    <View style={ styles.drawerItemContainer }>
+                        <Text><Icon name="sliders" size={25} color='black'  /></Text>     
+                        <Text style={{ ...styles.menuText, marginLeft: 8 }}>Settings</Text>
+                    </View>    
                 </TouchableOpacity>
             </View>
         </DrawerContentScrollView>

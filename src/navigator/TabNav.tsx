@@ -10,6 +10,9 @@ import Tab2Screen from '../screens/Tab2Screen';
 import StackNavigator from './StackNavigator';
 
 import { colors, styles } from '../themes/AppTheme';
+import TopTabNavigator from './TopTabNavigator';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const TabNav = () => {
     return Platform.OS === 'ios' ? <TabNavIOS/> : <TabMD/>
@@ -21,33 +24,34 @@ const TabMD = () => {
   return (
     <TabMd.Navigator 
         sceneAnimationEnabled={ true }
+        barStyle={{ backgroundColor: colors.primary }}
         screenOptions={({ route }) => ({
-            tabBarActiveTintColor: colors.primary,
             tabBarLabelStyle:{
-                fontSize: 15
+                fontSize: 15,
+                //color: 'white'
             },
             tabBarIcon: ({color, focused}) => {
                 let iconName: string = '';
                 switch(route.name) {
                   case 'Tab1' :
-                    iconName = 'T1'
+                    iconName =  'home'
                     break;
        
                   case 'Tab2' :
-                    iconName = 'T2'
+                    iconName =  'users'
                     break;
        
                   case 'StackNav' :
-                    iconName = 'ST'
+                    iconName =  'slack'
                     break;
                 }
-                return <Text style={{color}}>{ iconName }</Text>
+                return <Icon name={ iconName } size={25} color={ colors.primary }  />
             }
         })}
     >
-      <TabMd.Screen name="Tab1" options={{ title: 'Tab 1' }} component={Tab1Screen} />
-      <TabMd.Screen name="Tab2" options={{ title: 'Tab 2' }} component={Tab2Screen} />
-      <TabMd.Screen name="StackNav" options={{ title: 'StackNav' }} component={StackNavigator} />
+      <TabMd.Screen name="Tab1" component={Tab1Screen} />
+      <TabMd.Screen name="Tab2"  component={TopTabNavigator} />
+      <TabMd.Screen name="StackNav" component={StackNavigator} />
     </TabMd.Navigator>
   );
 }
@@ -73,24 +77,24 @@ const TabNavIOS = () => {
                 let iconName: string = '';
                 switch(route.name) {
                   case 'Tab1' :
-                    iconName = 'T1'
+                    iconName =  'home'
                     break;
        
                   case 'Tab2' :
-                    iconName = 'T2'
+                    iconName =  'users'
                     break;
        
                   case 'StackNav' :
-                    iconName = 'ST'
+                    iconName =  'slack'
                     break;
                 }
-                return <Text style={{color}}>{ iconName }</Text>
+                return <Icon name={ iconName } size={25} color={ colors.primary }  />
             }
         })}
     >
-      <TabIos.Screen name="Tab1" options={{ title: 'Tab 1' }} component={Tab1Screen} />
-      <TabIos.Screen name="Tab2" options={{ title: 'Tab 2' }} component={Tab2Screen} />
-      <TabIos.Screen name="StackNav" options={{ title: 'StackNav' }} component={StackNavigator} />
+      <TabIos.Screen name="Tab1"  component={Tab1Screen} />
+      <TabIos.Screen name="Tab2"  component={TopTabNavigator} />
+      <TabIos.Screen name="StackNav"  component={StackNavigator} />
     </TabIos.Navigator>
   )
 }
